@@ -236,17 +236,25 @@
         }
 
         .founder-card {
-            max-width: 500px;
+            max-width: 400px;
             background: #ffffff;
             margin: 30px auto 0 auto;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .founder-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
         }
 
         .founder-card h3 {
             color: var(--primary-blue);
-            font-size: 20px;
+            font-size: 22px;
             margin-bottom: 5px;
         }
 
@@ -258,13 +266,107 @@
             letter-spacing: 1px;
         }
 
+        /* Traders Market Section */
+        .market {
+            padding: 80px 20px;
+            background-color: #ffffff;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .market-form {
+            background: var(--light-bg);
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .market-form h3 {
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--primary-teal);
+        }
+
+        .btn-submit {
+            background-color: var(--primary-teal);
+            color: white;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: #188c6e;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .product-card {
+            background: var(--light-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 12px;
+        }
+
+        .product-card h4 {
+            color: var(--primary-blue);
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .product-price {
+            color: var(--primary-teal);
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
         /* Contact Section */
         .contact {
             padding: 80px 20px;
             max-width: 600px;
             margin: 0 auto;
             text-align: center;
-            background-color: #ffffff;
+            background-color: var(--light-bg);
         }
 
         .contact-info {
@@ -339,6 +441,7 @@
                         <li><a href="#home">Home</a></li>
                         <li><a href="#about">About</a></li>
                         <li><a href="#services">Services</a></li>
+                        <li><a href="#market">Market</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </nav>
@@ -395,10 +498,43 @@
         </div>
     </section>
 
+    <!-- Traders Market Section -->
+    <section id="market" class="market">
+        <h2 class="section-title" style="text-align: center;">Traders' Market</h2>
+        <div class="section-divider"></div>
+        <p style="text-align: center; margin-bottom: 30px; color: #555;">Traders can list and sell their electronics, hardware, and goods here!</p>
+
+        <!-- Product Listing Form -->
+        <div class="market-form">
+            <h3>Add Your Product for Sale</h3>
+            <form id="productForm">
+                <div class="form-group">
+                    <input type="text" id="prodName" placeholder="Product Name (e.g. Solar Panel)" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="prodPrice" placeholder="Price (e.g. UGX 250,000)" required>
+                </div>
+                <div class="form-group">
+                    <input type="url" id="prodImg" placeholder="Image URL (paste link to image)" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="prodDesc" placeholder="Short description..." rows="3" required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Publish Product</button>
+            </form>
+        </div>
+
+        <!-- Display Products Grid -->
+        <div class="product-grid" id="productGrid">
+            <!-- Dynamic products will appear here -->
+        </div>
+    </section>
+
     <section class="leadership">
         <h2 class="section-title">Leadership</h2>
         <div class="section-divider"></div>
         <div class="founder-card">
+            <img src="founder.jpg" alt="Suubi Abdulkarim - Founder" class="founder-img">
             <h3>Suubi Abdulkarim</h3>
             <p>Founder</p>
         </div>
@@ -429,7 +565,7 @@
         <p>&copy; 2026 LifeSoc Ventures. Elevating Life of the Society. All Rights Reserved.</p>
     </footer>
 
-    <!-- JavaScript Search Functionality -->
+    <!-- JavaScript for Search and Market Functionality -->
     <script>
         function searchServices() {
             let input = document.getElementById('searchInput').value.toLowerCase();
@@ -444,11 +580,57 @@
                 }
             });
 
-            // Automatically scroll down to services section if typing
             if (input.trim() !== "") {
                 document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
             }
         }
+
+        // Traders Market Script
+        document.getElementById('productForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            let name = document.getElementById('prodName').value;
+            let price = document.getElementById('prodPrice').value;
+            let img = document.getElementById('prodImg').value;
+            let desc = document.getElementById('prodDesc').value;
+
+            let product = { name, price, img, desc };
+            
+            let products = JSON.parse(localStorage.getItem('lifesoc_products')) || [];
+            products.push(product);
+            localStorage.setItem('lifesoc_products', JSON.stringify(products));
+
+            renderProducts();
+            document.getElementById('productForm').reset();
+        });
+
+        function renderProducts() {
+            let grid = document.getElementById('productGrid');
+            let products = JSON.parse(localStorage.getItem('lifesoc_products')) || [];
+            
+            grid.innerHTML = "";
+            
+            if(products.length === 0) {
+                grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: #777;">No products listed yet. Be the first trader to add one!</p>';
+                return;
+            }
+
+            products.forEach(p => {
+                let card = document.createElement('div');
+                card.className = 'product-card';
+                card.innerHTML = `
+                    <img src="${p.img}" alt="${p.name}">
+                    <h4>${p.name}</h4>
+                    <div class="product-price">${p.price}</div>
+                    <p style="font-size: 13px; color: #666; margin-bottom: 15px;">${p.desc}</p>
+                    <a href="#contact" class="btn-submit" style="display:inline-block; text-decoration:none; padding:8px 15px; font-size:14px;">Inquire / Buy</a>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Load products on page startup
+        window.onload = renderProducts;
     </script>
 
 </body>
