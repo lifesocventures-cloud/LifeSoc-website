@@ -49,7 +49,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px;
+            padding: 15px 20px;
+            flex-wrap: wrap;
+            gap: 15px;
         }
 
         .logo-text {
@@ -63,13 +65,20 @@
             color: var(--primary-teal);
         }
 
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
         nav ul {
             display: flex;
             list-style: none;
         }
 
         nav ul li {
-            margin-left: 25px;
+            margin-left: 20px;
         }
 
         nav ul li a {
@@ -81,6 +90,35 @@
 
         nav ul li a:hover {
             color: var(--primary-teal);
+        }
+
+        /* Search Bar */
+        .search-box {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-box input {
+            padding: 8px 35px 8px 15px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            outline: none;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+            width: 180px;
+        }
+
+        .search-box input:focus {
+            border-color: var(--primary-teal);
+        }
+
+        .search-box i {
+            position: absolute;
+            right: 12px;
+            color: #888;
+            font-size: 14px;
+            pointer-events: none;
         }
 
         /* Hero Section */
@@ -269,10 +307,17 @@
         @media (max-width: 768px) {
             .nav-container {
                 flex-direction: column;
-                gap: 15px;
+                align-items: center;
+            }
+            .nav-right {
+                flex-direction: column;
+                gap: 10px;
             }
             nav ul li {
                 margin: 0 10px;
+            }
+            .search-box input {
+                width: 220px;
             }
             .hero h1 {
                 font-size: 32px;
@@ -288,20 +333,26 @@
     <header>
         <div class="nav-container">
             <div class="logo-text">LifeSoc <span>Ventures</span></div>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+            <div class="nav-right">
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="search-box">
+                    <input type="text" placeholder="Search services...">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
         </div>
     </header>
 
     <section id="home" class="hero">
         <h1>Elevating Life of the Society</h1>
-        <p>Your multi-sector solution providing premium real estate, cleaning services, modern laundromats, and professional electrical works across Kampala.</p>
+        <p>Your multi-sector solution providing premium real estate, cleaning services, modern laundromats, and electrical works with electronics deployment and sales across Kampala.</p>
         <a href="#contact" class="btn-main">Get in Touch</a>
     </section>
 
@@ -337,8 +388,8 @@
 
                 <div class="card">
                     <i class="fa-solid fa-bolt-lightning"></i>
-                    <h3>Electrical Works</h3>
-                    <p>Expert electrical installations, maintenance, and secure infrastructure operations.</p>
+                    <h3>Electrical Works & Electronics</h3>
+                    <p>Expert electrical installations, maintenance, electronics deployment, and quality electronics selling.</p>
                 </div>
             </div>
         </div>
