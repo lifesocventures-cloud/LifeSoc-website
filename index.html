@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LifeSoc Ventures | Elevating Life of the Society</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* CSS Reset & General Theme */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary-blue: #0f4c75;
+            --primary-teal: #1fab89;
+            --dark-bg: #1b262c;
+            --light-bg: #f7f9fa;
+            --text-dark: #333333;
+            --text-light: #ffffff;
+        }
+
+        body {
+            color: var(--text-dark);
+            background-color: var(--light-bg);
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        header {
+            background-color: var(--text-light);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .logo-text {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            letter-spacing: 1px;
+        }
+
+        .logo-text span {
+            color: var(--primary-teal);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-teal);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(15, 76, 117, 0.95), rgba(31, 171, 137, 0.9)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            color: var(--text-light);
+            text-align: center;
+            padding: 140px 20px;
+        }
+
+        .hero h1 {
+            font-size: 44px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            font-weight: 300;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-main {
+            background-color: var(--text-light);
+            color: var(--primary-blue);
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-main:hover {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            transform: translateY(-2px);
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 36px;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .section-divider {
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-teal);
+            margin: 0 auto 30px auto;
+            border-radius: 2px;
+        }
+
+        /* Services Grid Section */
+        .services {
+            background-color: #ffffff;
+            padding: 80px 20px;
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: var(--light-bg);
+            padding: 40px 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .card i {
+            font-size: 45px;
+            color: var(--primary-teal);
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 22px;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+
+        /* Leadership Section */
+        .leadership {
+            padding: 60px 20px;
+            background-color: var(--light-bg);
+            text-align: center;
+        }
+
+        .founder-card {
+            max-width: 500px;
+            background: #ffffff;
+            margin: 30px auto 0 auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .founder-card h3 {
+            color: var(--primary-blue);
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .founder-card p {
+            color: var(--primary-teal);
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            background-color: #ffffff;
+        }
+
+        .contact-info {
+            margin-top: 30px;
+            font-size: 18px;
+        }
+
+        .contact-item {
+            margin: 15px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-item a {
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--primary-teal);
+        }
+
+        .contact-item i {
+            color: var(--primary-blue);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            nav ul li {
+                margin: 0 10px;
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+            .hero p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo-text">LifeSoc <span>Ventures</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <h1>Elevating Life of the Society</h1>
+        <p>Your multi-sector solution providing premium real estate, cleaning services, modern laundromats, and professional electrical works across Kampala.</p>
+        <a href="#contact" class="btn-main">Get in Touch</a>
+    </section>
+
+    <section id="about" class="about">
+        <h2 class="section-title">Who We Are</h2>
+        <div class="section-divider"></div>
+        <p><strong>LifeSoc</strong> stands for <strong>Life of the Society</strong>. We believe that a strong, thriving community is built on safe spaces, reliable infrastructure, spotless environments, and absolute convenience. Through our diverse partnership ventures, we raise everyday standards one service at a time.</p>
+    </section>
+
+    <section id="services" class="services">
+        <div class="services-container">
+            <h2 class="section-title" style="text-align: center;">Our Core Services</h2>
+            <div class="section-divider"></div>
+            
+            <div class="grid">
+                <div class="card">
+                    <i class="fa-solid fa-building-user"></i>
+                    <h3>Real Estate</h3>
+                    <p>Securing and developing prime properties for residential and commercial needs.</p>
+                </div>
+
+                <div class="card">
+                    <i class="fa-solid fa-broom"></i>
+                    <h3>Cleaning Services</h3>
+                    <p>Professional domestic and commercial deep-cleaning solutions for pristine spaces.</p>
+                </div>
+
+                <div class="card">
+                    <i class="fa-solid fa-soap"></i>
+                    <h3>Modern Laundromats</h3>
+                    <p>Quick, efficient, and pristine laundry services tailored for urban routines.</p>
+                </div>
+
+                <div class="card">
+                    <i class="fa-solid fa-bolt-lightning"></i>
+                    <h3>Electrical Works</h3>
+                    <p>Expert electrical installations, maintenance, and secure infrastructure operations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="leadership">
+        <h2 class="section-title">Leadership</h2>
+        <div class="section-divider"></div>
+        <div class="founder-card">
+            <h3>Suubi Abdulkarim</h3>
+            <p>Founder</p>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2 class="section-title">Let's Connect</h2>
+        <div class="section-divider"></div>
+        <p>Ready to work with us or have an inquiry? Reach out to our team in Kampala today.</p>
+        
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fa-solid fa-envelope"></i>
+                <a href="mailto:lifesocventures@gmail.com">lifesocventures@gmail.com</a>
+            </div>
+            <div class="contact-item">
+                <i class="fa-solid fa-phone"></i>
+                <a href="tel:+256746405598">+256 746 405 598</a>
+            </div>
+            <div class="contact-item">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Kampala, Uganda</span>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 LifeSoc Ventures. Elevating Life of the Society. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
