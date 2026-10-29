@@ -343,7 +343,7 @@
                     </ul>
                 </nav>
                 <div class="search-box">
-                    <input type="text" placeholder="Search services...">
+                    <input type="text" id="searchInput" onkeyup="searchServices()" placeholder="Search services...">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
             </div>
@@ -367,7 +367,7 @@
             <h2 class="section-title" style="text-align: center;">Our Core Services</h2>
             <div class="section-divider"></div>
             
-            <div class="grid">
+            <div class="grid" id="servicesGrid">
                 <div class="card">
                     <i class="fa-solid fa-building-user"></i>
                     <h3>Real Estate</h3>
@@ -428,6 +428,28 @@
     <footer>
         <p>&copy; 2026 LifeSoc Ventures. Elevating Life of the Society. All Rights Reserved.</p>
     </footer>
+
+    <!-- JavaScript Search Functionality -->
+    <script>
+        function searchServices() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let cards = document.querySelectorAll('#servicesGrid .card');
+            
+            cards.forEach(card => {
+                let text = card.textContent.toLowerCase();
+                if (text.includes(input)) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+
+            // Automatically scroll down to services section if typing
+            if (input.trim() !== "") {
+                document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
 
 </body>
 </html>
